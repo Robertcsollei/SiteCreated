@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Movie Excercise</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+            body{
+                background-color: aqua;
+                font-family: 'Courier New', Courier, monospace;
+                color:violet;
+            }
+            h1, p {
+               display: flex;
+               justify-content: center; 
+               text-align: center;
+            }
+        </style>
+
+    </head>
+    <body>
+    
+    <h1 id="target"></h1>
+    <p>When was this webpage created? Check page's title for the answer.</p>
+    <p id="meta"></p>
+    
+    <script src="cache.js"></script>
+
+    <script>
+  
+        let meta = document.getElementById('meta');
+        let target = document.getElementById('target');
+        let today = new Date();
+        const option = {weekday: 'long'};
+        let time = today.getDate() + " / " + (today.getMonth() + 1) + " / " + today.getFullYear() + '\n' + today.toLocaleDateString(undefined, option) + '\n' + 
+        today.getHours() + ' : ' + today.getMinutes() + ' : ' + today.getSeconds() ;
+        target.innerText = time;
+        let lastMod = new Date(document.lastModified);
+        let modified = today.getTime() - lastMod.getTime();
+        let modif = Math.round(modified / 1000);
+        
+        meta.innerText = 'Last modified: ' + modif + ' seconds ago' + '\n' + 'The document is ' + origin + ' days old.';
+        console.log(origin); 
+       
+
+
+    </script>
+    </body>
+</html>
